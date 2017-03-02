@@ -22,13 +22,19 @@ colorsNode.addEventListener('click', function(event) {
 })
 
 // color the picture when we click the mouse button down
-gridNode.addEventListener('click', function(event) {
+gridNode.addEventListener('mousedown', function(event) {
   if(event.target.classList.contains('cell')) {
     removeOtherColors(event.target)
     event.target.classList.add(currentColor)
   }
 })
 // Paint while moving the mouse with the button down
+gridNode.addEventListener('mouseover', function(event) {
+  if(event.target.classList.contains('cell') && event.buttons === 1) {
+    removeOtherColors(event.target)
+    event.target.classList.add(currentColor)
+  }
+})
 
 /** Function Declarations **/
 // Remove the other colors from the cell
